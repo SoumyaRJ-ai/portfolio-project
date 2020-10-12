@@ -122,8 +122,7 @@ USE_TZ = True
 #     os.path.join(BASE_DIR, '/portfolio/static/')  # We are telling django to find out all the static files here
 # ]
 
-STATIC_ROOT = os.path.join(BASE_DIR,
-                           'static')  # This will create a project level static folder and will help collecting all the static files at one place
+STATIC_ROOT = os.path.join(BASE_DIR,'static/')  # This will create a project level static folder and will help collecting all the static files at one place
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
