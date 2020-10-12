@@ -17,11 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-import jobs.views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', include('jobs.urls') ),  # This is one way of calling views of other app inside project
-    path('', jobs.views.home, name='home')  # This is another way of calling views of other app inside project
+    path('', include('jobs.urls')),  # This is one way of calling views of other app inside project
+    # path('', jobs.views.home, name='home')  # This is another way of calling views of other app inside project
+    path('blogs/', include('blog.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
