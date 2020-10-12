@@ -16,7 +16,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -27,7 +26,6 @@ SECRET_KEY = '+q2-u^e!vhk!q9^2$e)-e24#n^(p$kfank^e4_%!9gol(9-qlj'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -72,7 +70,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'portfolio.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -86,7 +83,6 @@ DATABASES = {
         'PORT': '5432'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -106,7 +102,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -120,7 +115,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
@@ -128,8 +122,14 @@ USE_TZ = True
 #     os.path.join(BASE_DIR, '/portfolio/static/')  # We are telling django to find out all the static files here
 # ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # This will create a project level static folder and will help collecting all the static files at one place
+STATIC_ROOT = os.path.join(BASE_DIR,
+                           'static')  # This will create a project level static folder and will help collecting all the static files at one place
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
